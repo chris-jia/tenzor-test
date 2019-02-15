@@ -1,0 +1,16 @@
+{extend name="index/base" /}
+{block name="location"}<h3>您当前的位置:{:session('location')}/{:session('gallery.name')}图库</h3>{/block}
+{block name="content"}
+{volist name="list" id="vo"}
+<div style="display:flex;flex-direction: row">
+    <div style="margin:10px">
+        <img src="__ROOT__/photo/{$vo.path}" alt="" style="width: 150px; height:150px; margin: 10px">
+        <h4>上传者:{$vo.photo_name}</h4>
+        <p>所在图库:{:session('gallery.name')}</p>
+        <p>上传时间:{$vo.create_time}</p>
+    </div>
+
+</div>
+{/volist}
+
+{/block}

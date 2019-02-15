@@ -1,0 +1,15 @@
+{extend name="index/base" /}
+{block name="content"}
+    <img src="">
+<form  action="##" method="post" style="width: 900px;margin: 10px auto 0px;">
+    <div class="form-group" style="width: 300px ;margin-left:100px ; ">
+        <h2>修改名称</h2>
+        <img src="__ROOT__/photo/{$data.path}" style="width: 200px;">
+        <label for="exampleInput" style="display: block">图片名称</label>
+        <input type="text" class="form-control" value="{$data.photo_name}" name="photo_name" id="exampleInput" placeholder="图片名称">
+        <button type="submit" class="btn btn-default" style="margin-top: 10px;" >确定</button>
+        <a href="{:url('index/index/photo',['gallery_id'=>$data.gallery_id])}" style="float: right;margin-top: 10px;" >取消</a>
+    </div>
+
+</form>
+{/block}

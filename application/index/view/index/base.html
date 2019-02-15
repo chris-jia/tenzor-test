@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    {block name="style"}{/block}
+</head>
+<body>
+    <div style="width: 1080px; margin:10px auto 0">
+        <div style="display: flex;height: 80px;">
+                <img src="__ROOT__/picture/logo.png" style="width: 80px;height: 80px">
+                <div class="nav nav-pills nav-stacked" style="margin-left: 700px">
+                    <span style="margin-right:20px; ">欢迎您: {:session('user.nickname')}</span>
+                    <img src="__ROOT__/profile_photo/{:session('user.profile_photo')}" style="width: 70px;">
+                    <a href="{:url('index/index/logoff')}"><button>登出</button></a>
+                </div>
+        </div>
+        <div style="display: flex; margin-top: 20px;">
+            <div>
+                <ul class="nav nav-sidebar">
+                    <li role="presentation" class="active"><a href="{:url('index/index/home','location=个人中心')}">个人中心</a></li>
+                    <li role="presentation" ><a href="{:url('index/index/myGallery','location=我的图库')}">我的图库</a></li>
+                    <li role="presentation" ><a href="{:url('index/index/myCollection','location=我的收藏')}">我的收藏</a></li>
+                    <li role="presentation" ><a href="{:url('index/index/gallerySquare','location=图库广场')}">图库广场</a></li>
+                </ul>
+            </div>
+            <div>
+                <div style="margin-left:20px ">
+                    {block name="location"}<h3>您当前的位置:{:session('location')}</h3>{/block}
+                    <div class="panel-body" style="display: flex;flex-wrap: wrap; width: 900px">
+                        {block name="content"}{/block}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

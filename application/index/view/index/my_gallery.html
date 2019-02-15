@@ -1,0 +1,38 @@
+{extend name="index/base" /}
+{block name="content"}
+{volist name="gallery" id="vo"}
+<div style="display: flex;flex-wrap:wrap;">
+  <div style="margin-bottom: 20px;width:400px;">
+    <div id="head"style="display: flex;" >
+      <div style="display: flex;flex-direction: column">
+        <a href="{:url('index/index/photo',['gallery_id' => $vo.gallery_id])}" ><img src="__ROOT__/photo/{$vo.head_photo_path}" alt="没有图片" style="width: 100px;height: 100px"></a>
+        <span>图片封面</span>
+      </div>
+      <div>
+        <img src="" alt="" style="width: 100px">
+      </div>
+      
+    </div>
+    <div id="content" style="display: flex">
+      <div>
+          <h3>图库名称:{$vo.gallery_name}</h3>
+          <h5>创建时间:{$vo.create_time}</h5>
+          <h5>上次修改:{$vo.update_time}</h5>
+      </div>
+      <div>
+        图片描述
+        {$vo.gallery_describe}
+      </div>
+    </div>
+    <div id="button" style="display: flex; justify-content: space-around">
+        <a href="{:url('index/index/editGallery',['gallery_id' => $vo.gallery_id])}"><button type="button" class="btn btn-primary">编辑图库</button></a>
+        <a href="{:url('index/index/deleteGallery',['gallery_id' => $vo.gallery_id])}"><button type="button" class="btn btn-danger">删除图库</button></a>
+        <a href="{:url('index/index/release',['gallery_id' => $vo.gallery_id])}"><button type="button" class="btn btn-warning">{$vo.status.text}</button></a>
+    </div>
+  </div>
+
+
+</div>
+{/volist}
+<a href="{:url('index/index/addMyGallery')}"><button type="button" class="btn btn-primary">新增图库</button></a>
+{/block}

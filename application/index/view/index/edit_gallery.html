@@ -1,0 +1,16 @@
+{extend name="index/base" /}
+{block name="content"}
+<form  action="##" method="post" style="width: 900px;margin: 10px auto 0px;">
+    <div class="form-group" style="width: 300px ;margin-left:100px ; ">
+        <label for="exampleInput" style="display: block">图库名称</label>
+        <input type="text" class="form-control" value="{$gallery.gallery_name}" name="gallery_name" id="exampleInput" placeholder="图库名称">
+        {volist name="list" id="vo"}
+            <img src="__ROOT__/photo/{$vo.path}" style="width: 250px; margin-top: 10px">
+        {/volist}
+        <button type="submit" class="btn btn-default" style="margin-top: 10px;" >确定</button>
+        <a href="{:url('index/index/myGallery','location=我的图库')}" style="float: right;margin-top: 10px;" >取消</a>
+    </div>
+
+</form>
+
+{/block}
